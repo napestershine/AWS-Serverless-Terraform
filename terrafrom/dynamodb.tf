@@ -1,4 +1,4 @@
-resource "aws_dynamodb_table" "demo_table" {
+resource "aws_dynamodb_table" "document_table" {
   name         = "DOCUMENTS"
   billing_mode = "PAY_PER_REQUEST"
   hash_key     = "document_id"
