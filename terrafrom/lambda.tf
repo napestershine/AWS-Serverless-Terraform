@@ -2,7 +2,7 @@ resource "aws_lambda_function" "DocumentHandler" {
   function_name = "DocumentHandler"
   filename      = "../lambda/document_lambda.zip"
   handler       = "document.lambda_Handler"
-  runtime       = "python3.10"
+  runtime       = "python3.8"
   environment {
     variables = {
       REGION         = var.aws_region

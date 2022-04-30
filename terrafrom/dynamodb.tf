@@ -19,10 +19,10 @@ resource "aws_dynamodb_table" "document_table" {
   }
 
   global_secondary_index {
-    name               = "DocumentIndex"
-    hash_key           = "extension"
-    range_key          = "mime_type"
-    projection_type    = "ALL"
+    name            = "DocumentIndex"
+    hash_key        = "extension"
+    range_key       = "mime_type"
+    projection_type = "ALL"
   }
 
   tags = {
