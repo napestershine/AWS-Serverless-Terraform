@@ -32,3 +32,4 @@ resource "aws_iam_role_policy_attachment" "DocumentLambdaRolePolicy" {
   role       = aws_iam_role.DocumentLambdaRole.name
   policy_arn = aws_iam_policy.DocumentLambdaPolicy.arn
 }
+
