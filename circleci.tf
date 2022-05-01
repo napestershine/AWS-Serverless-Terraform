@@ -30,8 +30,12 @@ resource "aws_s3_bucket" "terraform_state" {
   # Enable versioning so we can see the full revision history of our
   # state files
   force_destroy = true
-  versioning {
-    enabled = true
+}
+
+resource "aws_s3_bucket_versioning" "terraform_state" {
+  bucket = aws_s3_bucket.terraform_state.id
+  versioning_configuration {
+    status = "Enabled"
   }
 }
 

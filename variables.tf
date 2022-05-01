@@ -5,4 +5,5 @@ variable "aws_region" {
 
 variable "user" {
   description = "AWS IAM user"
+  default = "circleci"
 }
