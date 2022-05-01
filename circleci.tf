@@ -24,3 +24,23 @@ resource "aws_iam_user_policy" "circleci" {
   user   = aws_iam_user.circleci.name
   policy = data.template_file.circleci_policy.rendered
 }
+
+resource "aws_s3_bucket" "terraform_state" {
+  bucket_prefix = "circle-ci-backend-"
+  # Enable versioning so we can see the full revision history of our
+  # state files
+  force_destroy = true
+  versioning {
+    enabled = true
+  }
+}
+
+resource "aws_s3_bucket_server_side_encryption_configuration" "terraform_state" {
+  bucket = aws_s3_bucket.terraform_state.bucket
+
+  rule {
+    apply_server_side_encryption_by_default {
+      sse_algorithm = "AES256"
+    }
+  }
+}
